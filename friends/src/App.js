@@ -4,6 +4,7 @@ import { PrivateRoute } from './components/PrivateRoute';
 
 import Login from './components/Login';
 import FriendsList from './components/FriendsList';
+import AddFriend from './components/AddFriend';
 
 function App() {
   const logout = () => {
@@ -23,13 +24,18 @@ function App() {
           <li>
             <Link to='/friendslist'>Friends List</Link>
           </li>
+          <li>
+            <Link to='/addfriend'>Add Friend</Link>
+          </li>
         </ul>
         <Switch>
           <PrivateRoute exact path='/friendslist'>
             <FriendsList />
           </PrivateRoute>
+          <PrivateRoute exact path='/addfriend'>
+            <AddFriend />
+          </PrivateRoute>
           <Route path='/login' component={Login} />
-          <Route path='/login' />
         </Switch>
       </div>
     </Router>

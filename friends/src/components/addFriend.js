@@ -1,10 +1,11 @@
 import React from 'react'
 import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { Redirect } from 'react-router-dom';
 
-class addFriend extends React.Component {
+class AddFriend extends React.Component {
   state = {
     friend: {
-      id: getNextId(),
       name: '',
       age: '',
       email: ''
@@ -23,10 +24,18 @@ class addFriend extends React.Component {
 
   formSubmit = e => {
     e.preventDefault();
-    axios 
+    axiosWithAuth() 
       .post('http://localhost:5000/api/friends', this.state.friend)
       .then(res => {
         console.log(res);
+        this.setState({
+          friend: {
+            name: '',
+            age: '',
+            email: ''
+          }
+        })
+        this.props.history.push('/friendslist');
       })
       .catch(err => {
         console.log(err);
@@ -41,26 +50,29 @@ class addFriend extends React.Component {
           <input
             type='text'
             name='name'
+            placeholder='name'
             onChange={this.handleChanges}
             value={this.state.friend.name}
           />
           <input
             type='text'
             name='age'
+            placeholder='age'
             onChange={this.handleChanges}
             value={this.state.friend.age}
           />
           <input
             type='text'
             name='email'
+            placeholder='email'
             onChange={this.handleChanges}
             value={this.state.friend.email}
           />
+          <button>Add</button>
         </form>
       </div>
     )
   }
-
 }
 
-export default addFriend;
+export default AddFriend;
