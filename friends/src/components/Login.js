@@ -41,7 +41,7 @@ class Login extends React.Component {
             onChange={this.handleChanges}
           />
           <input
-            type='password'
+            type='text'
             name='password'
             value={this.state.credentials.password}
             onChange={this.handleChanges}
