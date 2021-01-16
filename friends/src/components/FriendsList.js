@@ -1,5 +1,7 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
 
 class FriendsList extends React.Component {
   state = {
@@ -7,12 +9,12 @@ class FriendsList extends React.Component {
   };
 
   componentDidMount() {
-    this.getData();
+    this.getFriends();
   }
 
-  getData = () => {
-    axios
-      .get('/data')
+  getFriends = () => {
+    axiosWithAuth()
+      .get('/friends')
       .then(res => {
         console.log(res);
         this.setState({
