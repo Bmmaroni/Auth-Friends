@@ -21,11 +21,11 @@ function App() {
             <Link onClick={logout}>Logout</Link>
           </li>
           <li>
-            <Link to='/protected'>Protected Page</Link>
+            <Link to='/friendslist'>Friends List</Link>
           </li>
         </ul>
         <Switch>
-          <PrivateRoute exact path='/protected'>
+          <PrivateRoute exact path='/friendslist'>
 
           </PrivateRoute>
           <Route path='/login' component={Login} />
