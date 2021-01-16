@@ -28,3 +28,18 @@ a {
   color: #222222;
   padding: 10px;
 }
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 5px;
+  padding: 5px;
+  border: 2px dashed black;
+  background-color: silver;
+}
+
+.card-body {
+  justify-content: center;
+  align-items: center;
+}
